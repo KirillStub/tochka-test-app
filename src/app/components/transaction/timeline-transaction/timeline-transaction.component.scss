@@ -1,0 +1,13 @@
+.transaction {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid #239f60;
+  background: #f7fffb;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, .12);
+  padding: 16px;
+  &--expenditure {
+    border-color: #dc544b;
+    background: #fff0ef;
+  }
+}

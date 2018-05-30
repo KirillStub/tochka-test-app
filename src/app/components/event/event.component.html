@@ -1,0 +1,5 @@
+<div class="event" [ngSwitch]="event?.type">
+  <app-news-details *ngSwitchCase="'news'" [news]="event"></app-news-details>
+  <app-transaction-details *ngSwitchCase="'transaction'" [transaction]="event"></app-transaction-details>
+  <div class="event__error" *ngSwitchDefault>Событие не найдено.</div>
+</div>

@@ -1,0 +1,31 @@
+<div class="home">
+  <div class="home__header">
+    Сортировать:
+    <div class="home__sort" (click)="sortingByDate()">
+      по дате
+      <span *ngIf="sortBy === '-date'">&darr;</span>
+      <span *ngIf="sortBy === 'date'">&uarr;</span>
+    </div>
+    <div class="home__sort" (click)="sortingByType()">
+      по типу
+      <span *ngIf="sortBy === '-type'">&darr;</span>
+      <span *ngIf="sortBy === 'type'">&uarr;</span>
+    </div>
+    <div class="home__new">
+      <button type="button" class="button button__blue" [routerLink]="['/new-news']">Создать новость</button>
+      <button type="button" class="button button__blue" [routerLink]="['/new-transaction']">Создать транзакцию</button>
+    </div>
+  </div>
+  <div class="home__contnet">
+    <div class="timeline">
+      <div class="timeline__event" *ngFor="let event of events | sort : sortBy" [routerLink]="[event.id]" routerLinkActive="timeline__event--active"
+        [ngSwitch]="event.type">
+        <app-timeline-news *ngSwitchCase="'news'" [news]="event"></app-timeline-news>
+        <app-timeline-transaction *ngSwitchCase="'transaction'" [transaction]="event"></app-timeline-transaction>
+      </div>
+    </div>
+    <div class="event">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

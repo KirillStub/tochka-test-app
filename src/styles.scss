@@ -1,0 +1,82 @@
+body {
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// buttons 
+@mixin button($color) {
+  background-color: $color;
+  &:hover {
+    background-color: darken($color, 5%);
+  }
+}
+
+.button {
+  margin: 0;
+  padding: 8px 24px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, .12);
+  color: #ffffff;
+  &:hover {
+    text-decoration: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.button__blue {
+  @include button(#007ACC);
+}
+
+.button__red {
+  @include button(#DC544B);
+}
+
+// inputs 
+.input {
+  position: relative;
+  padding-bottom: 24px;
+  textarea,
+  input[type=number],
+  input[type=text] {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px 0 rgba(210, 217, 232, .2);
+    padding: 8px 16px;
+    border: 1px solid #D7D6D6;
+    font-size: 14px;
+    &:focus {
+      outline: none;
+    }
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+  }
+  &__error {
+    position: absolute;
+    color: #DC544B;
+  }
+  &--error {
+    textarea,
+    input[type=number],
+    input[type=text] {
+      border-color: #DC544B;
+    }
+  }
+}

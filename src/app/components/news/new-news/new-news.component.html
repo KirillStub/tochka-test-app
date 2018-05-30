@@ -1,0 +1,15 @@
+<form #form="ngForm" name="form" (submit)="form.valid && submit()">
+  <h2>Новая новость</h2>
+  <div class="input" [class.input--error]="form.submitted && title.invalid">
+    <label>Заголовок</label>
+    <input type="text" name="title" [(ngModel)]="news.title" #title="ngModel" required>
+    <div *ngIf="form.submitted && title.invalid" class="input__error">Это поле обязательно</div>
+  </div>
+  <div class="input" [class.input--error]="form.submitted && text.invalid">
+    <label>Текст</label>
+    <textarea name="text" [(ngModel)]="news.text" #text="ngModel" required></textarea>
+    <div *ngIf="form.submitted && text.invalid" class="input__error">Это поле обязательно</div>
+  </div>
+  <button type="submit" class="button button__blue">Создать</button>
+  <button type="button" class="button button__red" [routerLink]="['/']">Отмена</button>
+</form>

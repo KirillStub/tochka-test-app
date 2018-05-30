@@ -1,0 +1,32 @@
+<form #form="ngForm" name="form" (submit)="form.valid && submit()">
+  <h2>Новая транзакция</h2>
+  <div class="input" [class.input--error]="form.submitted && sum.invalid">
+    <label>Сумма</label>
+    <input type="number" name="sum" [(ngModel)]="transaction.sum" #sum="ngModel" required>
+    <div *ngIf="form.submitted && sum.invalid" class="input__error">Это поле обязательно</div>
+  </div>
+  <div class="input" [class.input--error]="form.submitted && currency.invalid">
+    <label>Валюта</label>
+    <input type="text" name="currency" [(ngModel)]="transaction.currency" #currency="ngModel" required>
+    <div *ngIf="form.submitted && currency.invalid" class="input__error">Это поле обязательно</div>
+  </div>
+  <div class="input" [class.input--error]="form.submitted && from.invalid">
+    <label>От кого</label>
+    <input type="text" name="from" [(ngModel)]="transaction.from" #from="ngModel" required>
+    <div *ngIf="form.submitted && from.invalid" class="input__error">Это поле обязательно</div>
+  </div>
+  <div class="input" [class.input--error]="form.submitted && isExpenditure.invalid">
+    <label>Тип: </label>
+    <input type="radio" name="isExpenditure" [(ngModel)]="transaction.isExpenditure" #isExpenditure="ngModel" [value]="false"
+      required> Приход
+    <input type="radio" name="isExpenditure" [(ngModel)]="transaction.isExpenditure" [value]="true" required> Расход
+    <div *ngIf="form.submitted && isExpenditure.invalid" class="input__error">Выберите тип транзакции</div>
+  </div>
+  <div class="input" [class.input--error]="form.submitted && discription.invalid">
+    <label>Описание</label>
+    <textarea name="discription" [(ngModel)]="transaction.discription" #discription="ngModel" required></textarea>
+    <div *ngIf="form.submitted && discription.invalid" class="input__error">Это поле обязательно</div>
+  </div>
+  <button type="submit" class="button button__blue">Создать</button>
+  <button type="button" class="button button__red" [routerLink]="['/']">Отмена</button>
+</form>

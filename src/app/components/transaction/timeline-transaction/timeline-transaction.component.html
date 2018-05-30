@@ -1,0 +1,7 @@
+<div class="transaction" [class.transaction--expenditure]="transaction.isExpenditure">
+  <span>
+    {{transaction.isExpenditure ? '-' : '+'}}{{transaction.sum}}{{transaction.currency}},
+  </span>
+  <i>{{transaction.from}}</i>,
+  <span>{{transaction.date | date : 'dd/MM/yyyy HH:mm'}} </span>
+</div>

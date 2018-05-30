@@ -1,0 +1,17 @@
+<div class="transaction">
+  <div class="transaction__title">Информация о транзакции:</div>
+  <div>
+    <b>Сумма:</b> {{transaction.sum}}</div>
+  <div>
+    <b>Валюта:</b> {{transaction.currency}}</div>
+  <div>
+    <b>От Кого:</b> {{transaction.from}}</div>
+  <div>
+    <b>Описание:</b> {{transaction.discription}}</div>
+  <div>
+    <b>Тип транзакции:</b> {{transaction.isExpenditure ? 'расход' : 'приход'}}</div>
+  <div>
+    <b>Дата:</b> {{transaction.date}}
+  </div>
+  <button type="button" class="button button__red" (click)="delete()">Удалить</button>
+</div>
